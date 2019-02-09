@@ -31,6 +31,13 @@ def render_str(template,**params):
 def render(template, **kw):
    return render_str(template, **kw)
 
+def check_user(name, password):
+	user = User.query.filter_by(username = name).first()
+	if user:
+		return sha256(password.encode('utf-8')).hexdigest() == user.password
+	else:
+		return False
+
    
    
 @app.route("/register" , methods=['GET', 'POST'])
@@ -45,11 +52,25 @@ def register ():
 		db.session.commit()
 		return "<h1> ZAGADKU CUDA 2 </h1>"
 		
+@app.route("/login" , methods=['GET', 'POST'])
+def login ():
+	if request.method == 'GET':
+		return render("register.html")
+	if request.method == "POST":
+		name = request.form['login']
+		password = request.form['password']
+		if check_user(name, password):
+			session['name'] = name
+			session['password'] = password
+			return "the 2nd quest"
+		else:
+			return render('login.html', error = "file for no exist")
 		
 		
 @app.route("/")
 def hello():
     return "FILE HTML PLS"
+
 app.secret_key = 'VERY VERY SECRET KEEEY'
 
 
