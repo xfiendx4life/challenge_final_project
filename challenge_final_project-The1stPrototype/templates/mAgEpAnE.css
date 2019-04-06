@@ -1,0 +1,25 @@
+body {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 20px;
+	word-spacing: 2px;
+	font-weight: 700;
+	background-color: #000000;
+	}
+h2 {
+	color: #84FF80;
+	}
+.lol1 {
+	color: #84FF80;
+	}
+.lol2 {					/* Заголовок */
+	color: #84FF80;
+	}
+.myButton {
+	margin-right: 45% ; color: #000000; font-size: 64px; line-height: 64px; padding: 24px; border-radius: 10px; font-family: Verdana, Geneva, sans-serif; font-weight: 700; text-decoration: none; font-style: normal; font-variant: normal; text-transform: none; background-image: linear-gradient(to right, #FF5CC3 0%, #FF8AD0 50%, #FFB5EB 100%); display: inline-block;
+	}
+.myButton:hover {
+	background: #30C8FF; 
+	}
+.myButton:active {
+	background: #73F6FF; 
+	}
